@@ -1,10 +1,17 @@
 import numpy as np
 import cv2
+import math
 
 class ChamferMatching:
 
     def Eucl_Distance(x1, x2, y1, y2) -> float:
         return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+
+    def Chessboard_Distance(x1, x2, y1, y2):
+        return max(abs(x2 - x1), abs(y2 - y1))
+
+    def Block_Distance(x1, x2, y1, y2):
+        return abs(x1 -x2) + abs(y1 -y2)
 
     def Chamfer_Dist_Transform(image):
         d1 = 1
