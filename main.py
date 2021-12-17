@@ -110,7 +110,8 @@ if __name__ == '__main__':
             sketchpath = os.path.join(root, f)
             templatepath = "/data/shijianyang/data/sketch/sketch1.png"
             # print(templatepath)
-            CD = match_sketch(sketchpath, templatepath)
+            # CD = match_sketch(sketchpath, templatepath)
+            CD = match_sketch(templatepath, sketchpath)
             cd_row = dict(ID=id, sketch=sketchpath, template=templatepath, Chamfer_Distance=CD)
             # cd_row['ID'] = id
             # cd_row['sketch'] = sketchpath
@@ -120,7 +121,7 @@ if __name__ == '__main__':
             bar.next()
             id += 1
             if((id % 1000) == 0):
-                write_csv('chamfer_matching_tshirts.csv', 'utf8', headers, rows)
+                write_csv('chamfer_matching_tshirts_exchange.csv', 'utf8', headers, rows)
                 print("---------%d has been processed-------"%(id))
             # print(id)
     bar.finish()
